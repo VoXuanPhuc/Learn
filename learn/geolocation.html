@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    canvas{
+      border: 2px solid black;
+    }
+  </style>
+</head>
+<body>
+  <div id="loc">hello</div>
+  <button id="btn">click</button>
+  <script>
+      var canvas = document.createElement('canvas');
+      var context = canvas.getContext('2d');
+      context.Width =400;
+      context.height = 400;
+      document.body.appendChild(canvas);
+
+      var loc =document.getElementById("loc");
+      var vag = 'sorry';
+      if(navigator.geolocation)
+      {
+        navigator.geolocation.getCurrentPosition(success,fail);
+        loc.textContent = 'cheking loaction';
+      }else{
+        loc.textContent = vag;
+
+      }
+      function success(position){
+        vag =  '<h3>Longitude:<br>';
+        vag += position.coords.latitude + '</h3>';
+         vag += '<h3>Latitude:<br>';
+        vag += position .coords.longitude + ' <lh3>';
+        loc.innerHTML = vag;
+      }
+      function  fail(vag){
+        loc.innerHTML = vag;
+        console.log(vag.code);
+      }
+    
+  </script>
+  
+</body>
+</html>

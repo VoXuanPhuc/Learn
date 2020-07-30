@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LogIn</title>
+</head>
+<style>
+    body{
+        background: #EEF1F6;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 500px;
+        
+    }
+    form{
+        background: white;
+        display: flex;
+        height: 300px;
+        width: 300px;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        border-radius: 10%;
+        box-shadow:  4px 6px 12px rgb(0,0,0 , .2);
+    }
+    form div{
+        padding: 10px;
+        position: relative;
+    }
+    input{
+        padding: 7px ;
+        border: none;
+        border-bottom: 1px solid blue;
+        outline: none;
+    }
+    label{
+        color: lightblue;
+        position: absolute;
+        left: 10px;
+        pointer-events: none;
+        bottom: 20px;
+        font-size: 15px;
+        transition:all 5s;
+        transition-delay: 2s;
+    }
+    button{
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-weight: 600;
+        width: 100px;
+        font-size: 16px;
+        background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+        padding: 10px;
+        border: 0;
+        border-radius: 15px;
+    }
+    input:focus + label , input:valid + label{
+        top: -8px;
+        /* font-size: 14px; */
+        color: blue;
+    }
+    #checkbox1{
+        position: absolute;
+    }
+    #checkbox{
+        position: relative;
+        right: 10px;
+        -webkit-appearance: none;
+        height: 30px;
+        width: 55px;
+        background-color: gray;
+        border-radius: 40%;
+        transition: 200ms;
+    }
+    #checkbox:checked {
+        background-color: blue;
+    }
+
+    #checkbox:before{
+        content: '';
+        left: 0;
+        top: -1px;
+        width: 25px;
+        height: 30px;
+        background-color: white;
+        position: absolute;
+        border-radius: 50%;
+        transition: 200ms;
+    }
+    #checkbox:checked::before {
+        left: 29px;
+    }
+</style>
+<body>
+    <form action="#">
+        <h4>Log In</h4>
+        <div>
+            <input type="text" required>
+            <label for="">Email or Phone</label>
+        </div>
+        <div>
+            <input type="password" required>
+            <label for="">Password</label>
+            <div id="checkbox1">
+                <input type="checkbox" name="" id="checkbox">
+            </div>
+        </div>
+        <button>Log In</button>
+    </form>
+</body>
+</html>

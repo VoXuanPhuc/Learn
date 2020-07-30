@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../bootstrap.css">
+    <title>Hold Shift</title>
+    <style>
+        body{
+            background-color: orange;
+            display: flex;
+            justify-content: center;
+        }
+        input{
+            
+        }
+        p{
+           
+           padding: 0 20px;
+        }
+        .pp{
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+<body>
+    <div class=" list-group w-25">
+        <div class="list-group-item d-flex">
+            <input type="checkbox" name="" id="1">
+            <p id="p1">click for select</p>
+        </div>
+        <div class="list-group-item d-flex">
+            <input type="checkbox" name="" id="2">
+            <p id="p2">click for select</p>
+        </div>
+        <div class="list-group-item d-flex">
+            <input type="checkbox" name="" id="3">
+            <p id="p3">click for select</p>
+        </div>
+        <div class="list-group-item d-flex">
+            <input type="checkbox" name="" id="4">
+            <p id="p4">click for select</p>
+        </div>
+        <div class="list-group-item d-flex">
+            <input type="checkbox" name="" id="5">
+            <p id="p5">click for select</p>
+        </div>
+        <div class="list-group-item d-flex">
+            <input type="checkbox" name="" id="6">
+            <p id="p6">click for select</p>
+        </div>
+        <div class="list-group-item d-flex">
+            <input type="checkbox" name="" id="7">
+            <p id="p7">click for select</p>
+        </div>
+        <div class="list-group-item d-flex">
+            <input type="checkbox" name="" id="8">
+            <p id="p8">click for select</p>
+        </div>
+    </div>
+    <script>
+        let lastCheckbox ;
+        function handleCheck(e){
+           
+            let inBetween = false;
+            if (e.shiftKey && this.checked){
+                checkboxs.forEach (checkbox => {
+                    if( checkbox === this || checkbox === lastCheckbox){
+                        inBetween = !inBetween;   
+                    }
+                    if(inBetween){
+                        e.checked = true;
+                    }
+                });
+            }
+            lastCheckbox = this;
+            if(this.checked){
+                inBetween =! inBetween;
+            }
+            const ps = document.querySelector(`#p${this.id}`);
+            if (inBetween){
+              ps.className = 'pp';
+            } else{
+                ps.classList.remove('pp');   
+            }
+        }
+        const checkboxs = document.querySelectorAll('.list-group input[type="checkbox"]');
+        checkboxs.forEach( checkbox => {
+            checkbox.addEventListener('click',handleCheck);
+        });
+    </script>
+</body>
+</html>
