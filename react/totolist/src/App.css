@@ -1,0 +1,24 @@
+.App {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.header{
+  padding: 10px 0 ;
+}
+.header input{
+  padding: 10px;
+  border: none;
+  border-bottom: 1px solid gray;
+  
+}
+.header img{
+  margin: 0;
+  padding: 10px 10px 0 0;
+}
+
+
+
